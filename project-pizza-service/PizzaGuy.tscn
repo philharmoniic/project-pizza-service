@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dfrtfx30momkf"]
+
+[ext_resource type="Script" uid="uid://8tt51ob4vks" path="res://pizza_guy.gd" id="1_5grjr"]
+[ext_resource type="Texture2D" uid="uid://b7gascewcdlxn" path="res://Art/pizza1.png" id="1_6dg1a"]
+[ext_resource type="Texture2D" uid="uid://dg4asbr30c8w4" path="res://Art/pizza2.png" id="2_5grjr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pogvd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6dg1a")
+}],
+"loop": 1,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5grjr")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pogvd"]
+size = Vector2(270, 280)
+
+[node name="PizzaGuy" type="CharacterBody2D" unique_id=1077905054]
+script = ExtResource("1_5grjr")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=790703804]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_pogvd")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=208724867]
+position = Vector2(1, -6)
+shape = SubResource("RectangleShape2D_pogvd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=813857641]
+zoom = Vector2(0.5, 0.5)
+drag_horizontal_enabled = true
